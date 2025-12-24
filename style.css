@@ -175,11 +175,11 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 40px;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .about-img img {
-  width: 500px;
+  width: 100%;
   max-width: 550px;
   height: 450px;
   border-radius: 12px;
@@ -191,11 +191,16 @@ body {
   flex: 1;
   display: flex;
   justify-content: center;
+  min-height: 450px;
 }
 
 .about-content {
   flex: 1;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 450px;
 }
 
 .about-content h2 {
@@ -211,6 +216,9 @@ body {
 
 .about-details p {
   margin: 6px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .interests {
@@ -769,6 +777,14 @@ body.dark .navbar {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
+body.dark .menu-icon {
+  color: #e0e0e0;
+}
+
+body.dark .nav-links {
+  background: #2d2d2d;
+}
+
 body.dark .nav-links li a {
   color: #e0e0e0;
 }
@@ -1265,13 +1281,71 @@ body.dark .service-card:hover {
 
   .menu-icon {
     display: block;
+    color: #111;
+    z-index: 1001;
+  }
+
+  .theme-btn {
+    font-size: 18px;
   }
 }
 
 @media (max-width: 768px) {
   .about-grid {
     flex-direction: column;
+    gap: 20px;
+  }
+
+  .about-img {
+    width: 100%;
+    min-height: auto;
+  }
+
+  .about-img img {
+    max-width: 100%;
+    height: auto;
+    min-height: auto;
+  }
+
+  .about-content {
+    padding: 0 15px;
     text-align: center;
+    min-height: auto;
+    justify-content: flex-start;
+    gap: 15px;
+  }
+
+  .about-content p {
+    text-align: center;
+  }
+
+  .about-section .section-title {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .about-details {
+    margin-top: 20px;
+  }
+
+  .about-details p {
+    font-size: 12px;
+    text-align: center;
+    margin: 8px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .interests {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .interests span {
+    margin: 5px 5px 5px 0;
+    font-size: 12px;
+    padding: 5px 10px;
   }
 
   .projects-container {
@@ -1289,6 +1363,28 @@ body.dark .service-card:hover {
 
   .footer p {
     font-size: 14px;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    text-align: center;
+  }
+
+  .footer-section {
+    text-align: center;
+  }
+
+  .contact-info p {
+    justify-content: center;
+  }
+
+  .footer-links {
+    text-align: center;
+  }
+
+  .social-icons {
+    justify-content: center;
   }
 
   .social-icons a {
