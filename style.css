@@ -216,9 +216,8 @@ body {
 
 .about-details p {
   margin: 6px 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .interests {
@@ -264,7 +263,12 @@ body {
   text-align: center;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s, box-shadow 0.3s;
-  max-width: 180px;
+  width: 180px;
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .skill-card:hover {
@@ -782,6 +786,19 @@ body.dark .menu-icon {
 }
 
 body.dark .nav-links {
+  background: #2a2a2a;
+  box-shadow: -2px 0 15px rgba(0, 0, 0, 0.5);
+}
+
+body.dark .nav-links li a {
+  color: #e0e0e0;
+}
+
+body.dark .nav-links li a:hover {
+  background: #3a3a3a;
+}
+
+body.dark .nav-links {
   background: #2d2d2d;
 }
 
@@ -1258,25 +1275,35 @@ body.dark .service-card:hover {
   }
 
   .nav-links {
-    position: absolute;
-    top: 60px;
-    right: 20px;
+    position: fixed;
+    top: 70px;
+    right: -100%;
     background: #fff;
     flex-direction: column;
-    width: 220px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    padding: 15px 0;
-    display: none;
-    border-radius: 8px;
+    width: 250px;
+    max-width: 80vw;
+    box-shadow: -2px 0 15px rgba(0, 0, 0, 0.15);
+    padding: 20px 0;
+    border-radius: 8px 0 0 8px;
+    transition: right 0.3s ease-in-out;
+    height: calc(100vh - 70px);
+    overflow-y: auto;
   }
 
   .nav-links li {
-    margin: 10px 0;
+    margin: 0;
     text-align: center;
+    padding: 12px 0;
   }
 
-  #menu-toggle:checked + .menu-icon + .nav-links {
-    display: flex;
+  .nav-links li a {
+    display: block;
+    padding: 10px 20px;
+    width: 100%;
+  }
+
+  #menu-toggle:checked ~ .nav-links {
+    right: 0;
   }
 
   .menu-icon {
@@ -1329,12 +1356,12 @@ body.dark .service-card:hover {
   }
 
   .about-details p {
-    font-size: 12px;
+    font-size: 14px;
     text-align: center;
     margin: 8px 0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.6;
   }
 
   .interests {
